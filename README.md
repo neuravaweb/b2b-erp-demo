@@ -108,3 +108,4 @@ npm run build
 ## License
 
 This is a demo project for demonstration purposes only.
+# b2b-erp-demo
