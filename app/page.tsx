@@ -8,18 +8,19 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    if (isDemoAuthenticated()) {
-      const role = getDemoRole();
-      if (role === 'USER') {
-        router.push('/customer');
-      } else if (role === 'ACCOUNTANT') {
-        router.push('/accountant');
-      } else if (role === 'WAREHOUSE') {
-        router.push('/warehouse');
-      }
-    } else {
+    if (!isDemoAuthenticated()) {
       router.push('/login');
+      return;
     }
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    if (isMobile) {
+      router.push('/panels');
+      return;
+    }
+    const role = getDemoRole();
+    if (role === 'USER') router.push('/customer');
+    else if (role === 'ACCOUNTANT') router.push('/accountant');
+    else if (role === 'WAREHOUSE') router.push('/warehouse');
   }, [router]);
 
   return (

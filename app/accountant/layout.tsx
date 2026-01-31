@@ -36,7 +36,7 @@ export default function AccountantLayout({
     <div className="min-h-screen bg-gray-50">
       <Sidebar role="ACCOUNTANT" />
       <Header role="ACCOUNTANT" showLogout={true} logoutDisabled={true} />
-      <main className="ml-64 mt-16 p-6">
+      <main className="ml-0 md:ml-64 mt-16 p-4 md:p-6">
         {children}
       </main>
     </div>

@@ -27,7 +27,8 @@ export default function LoginPage() {
 
       if (data.success) {
         setDemoRole(data.role);
-        router.push('/customer');
+        const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+        router.push(isMobile ? '/panels' : (data.role === 'USER' ? '/customer' : data.role === 'ACCOUNTANT' ? '/accountant' : '/warehouse'));
       } else {
         setError(data.message || 'Login failed');
       }

@@ -36,7 +36,7 @@ export default function WarehouseLayout({
     <div className="min-h-screen bg-gray-50">
       <Sidebar role="WAREHOUSE" />
       <Header role="WAREHOUSE" showLogout={true} logoutDisabled={true} />
-      <main className="ml-64 mt-16 p-6">
+      <main className="ml-0 md:ml-64 mt-16 p-4 md:p-6">
         {children}
       </main>
     </div>
